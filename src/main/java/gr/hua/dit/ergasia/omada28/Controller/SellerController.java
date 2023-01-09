@@ -41,6 +41,12 @@ public class SellerController {
         return seller;
     }
 
+    @GetMapping("/{id}/contract")
+    public Contract getContractBySellerId(@PathVariable int id){
+        Seller seller = sellerDao.findById(id);
+        return seller.getContract();
+    }
+
 
     @PostMapping("/{id}/contract/agree/{choice}")
     public Contract sellerAgree(@PathVariable("id") int id, @PathVariable("choice") int choice){

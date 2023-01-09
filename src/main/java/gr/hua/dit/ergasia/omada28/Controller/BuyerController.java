@@ -56,8 +56,8 @@ public class BuyerController {
     }
 
     /*
-    @PostMapping("{id}/{lastname}")
-    public Buyer updateLastname(@PathVariable("id") int id, @PathVariable("lastname") String lastName){
+    @PostMapping("{id}/lastname")
+    public Buyer updateLastname(@PathVariable("id") int id, @RequestBody String lastName){
         Buyer buyer = buyerDao.findById(id);
 
         if(buyer == null){
@@ -72,7 +72,9 @@ public class BuyerController {
 
 
     }
-    */
+
+     */
+
 
 
     @GetMapping("/{id}/contract")

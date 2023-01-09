@@ -42,6 +42,12 @@ public class ContractorController {
         return contractor;
     }
 
+    @GetMapping("/{id}/contract")
+    public Contract getContractByContractorId(@PathVariable int id){
+        Contractor contractor = contractorDao.findById(id);
+        return contractor.getContract();
+    }
+
 
     @PostMapping("/{cid}/contract")
     public Contract addContract(@PathVariable int cid, @RequestBody Contract contract){
