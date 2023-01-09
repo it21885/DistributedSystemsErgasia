@@ -22,7 +22,7 @@ Setting up the application:
 
 -Update Maven Dependencies 
 
--Change username and password in application properties to match MySQL server configuration
+-Change username(default: root) and password(default: pass123) in application properties to match MySQL server configuration. Optional: change database name(default:Ergasia)
 
 -Connect MySQL Database in Intellij IDEA:
 Database -> add Database -> MySQL -> 
