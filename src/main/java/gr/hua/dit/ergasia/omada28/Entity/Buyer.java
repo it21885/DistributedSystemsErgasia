@@ -55,6 +55,7 @@ public class Buyer implements Serializable {
 
 
 
+
     public Buyer(){
 
     }
@@ -98,6 +99,17 @@ public class Buyer implements Serializable {
     }
 
 
+
+    @JsonIgnore
+    private String propertyName;
+
+    public String getPropertyName() {
+        return propertyName;
+    }
+
+    public void setPropertyName(String propertyName) {
+        this.propertyName = propertyName;
+    }
 
 
 

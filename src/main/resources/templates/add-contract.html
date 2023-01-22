@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      layout:decorate="~{page_layout/layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Contract Form Page</title>
+</head>
+<body>
+<div layout:fragment="main-content">
+    <form class="row g-3" th:action="@{/contractform}" th:object="${contract}" method="post">
+        <div class="form-outline mb-4">
+            <label for="propertyname" class="form-label">Property Name</label>
+            <input type="text" th:field="*{propertyname}" id="propertyname" placeholder="propertyname" class="form-control">
+            <span th:if="${#fields.hasErrors('propertyname')}" th:errors="*{propertyname}"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+</body>
+</html>

@@ -14,8 +14,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "contractor")
-public class Contractor implements Serializable {
+@Table(name = "buyer")
+public class Buyer implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,28 +36,35 @@ public class Contractor implements Serializable {
     //@Size(max = 30)
     private String email;
 
-    @OneToOne(mappedBy="contractor",fetch = FetchType.EAGER,
+    @OneToOne(mappedBy="buyer", fetch = FetchType.EAGER,
             cascade= {CascadeType.PERSIST, /*CascadeType.MERGE,*/
                     CascadeType.DETACH, CascadeType.REFRESH})
     @JsonIgnore
     private Contract contract;
 
 
+    public Contract getContract() {
+        return contract;
+    }
+
+    public void setContract(Contract contract) {
+        this.contract = contract;
+    }
 
 
 
 
 
-
-    public Contractor(){
+    public Buyer(){
 
     }
 
-    public Contractor(String firstName, String lastName, String email) {
+    public Buyer(String firstName, String lastName, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
     }
+
 
     public int getId() {
         return id;
@@ -91,31 +98,14 @@ public class Contractor implements Serializable {
     }
 
 
-    public Contract getContract() {
-        return contract;
-    }
-
-    public void setContract(Contract contract) {
-        this.contract = contract;
-    }
 
 
-    @JsonIgnore
-    private String propertyName;
-
-    public String getPropertyName() {
-        return propertyName;
-    }
-
-    public void setPropertyName(String propertyName) {
-        this.propertyName = propertyName;
-    }
 
 
     @Override
     public String toString() {
-        return "Contractor [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
-                + "]";
+        return "Buyer [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
+                 + "]";
     }
 
 

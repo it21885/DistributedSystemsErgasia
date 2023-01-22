@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      layout:decorate="~{page_layout/layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Buyer Form Page</title>
+</head>
+<body>
+<div layout:fragment="main-content">
+    <form class="row g-3" th:action="@{/buyerform}" th:object="${buyer}" method="post">
+        <div class="form-outline mb-4">
+            <label for="firstName" class="form-label">First Name</label>
+            <input type="text" th:field="*{firstName}" id="firstName" placeholder="FirstName" class="form-control">
+            <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></span>
+        </div>
+        <div class="form-outline mb-4">
+            <label for="lastName" class="form-label">Last Name</label>
+            <input type="text" th:field="*{lastName}" id="lastName" placeholder="LastName" class="form-control">
+            <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></span>
+        </div>
+        <div class="form-outline mb-4">
+            <label for="email"  class="form-label">Email</label>
+            <input type="email" th:field="*{email}" id="email" placeholder="Email" class="form-control">
+            <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+</body>
+</html>

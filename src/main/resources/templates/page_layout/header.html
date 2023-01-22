@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<header class="mb-auto" th:fragment="header">
+    <div>
+        <h3 class="float-md-start mb-0">Omada28</h3>
+        <nav class="nav nav-masthead justify-content-center float-md-end">
+            <a class="nav-link fw-bold py-1 px-0" aria-current="page" href="/" th:href="@{/}">Home</a>
+            <a sec:authorize="hasAnyRole('ADMIN', 'BUYER', 'CONTRACTOR')" class="nav-link fw-bold py-1 px-0" aria-current="page" href="/buyerlist" th:href="@{/buyerlist}">BuyerList</a>
+            <a sec:authorize="hasAnyRole('ADMIN', 'BUYER')" class="nav-link fw-bold py-1 px-0" href="/buyerform" th:href="@{/buyerform}">BuyerForm</a>
+            <a sec:authorize="hasAnyRole('ADMIN', 'SELLER', 'CONTRACTOR')" class="nav-link fw-bold py-1 px-0" aria-current="page" href="/sellerlist" th:href="@{/sellerlist}">SellerList</a>
+            <a sec:authorize="hasAnyRole('ADMIN', 'SELLER')" class="nav-link fw-bold py-1 px-0" href="/sellerform" th:href="@{/sellerform}">SellerForm</a>
+            <a sec:authorize="hasAnyRole('ADMIN', 'CONTRACTOR')" class="nav-link fw-bold py-1 px-0" aria-current="page" href="/contractorlist" th:href="@{/contractorlist}">ContractorList</a>
+            <a sec:authorize="hasAnyRole('ADMIN', 'CONTRACTOR')" class="nav-link fw-bold py-1 px-0" href="/contractorform" th:href="@{/contractorform}">ContractorForm</a>
+            <a sec:authorize="hasAnyRole('ADMIN', 'CONTRACTOR')" class="nav-link fw-bold py-1 px-0" aria-current="page" href="/contractlist" th:href="@{/contractlist}">ContractList</a>
+            <a sec:authorize="hasAnyRole('ADMIN', 'CONTRACTOR')" class="nav-link fw-bold py-1 px-0" href="/contractform" th:href="@{/contractform}">ContractForm</a>
+            <a sec:authorize="isAuthenticated()" class="nav-link fw-bold py-1 px-0" href="/logout" th:href="@{/logout}">Logout</a>
+            <a sec:authorize="!isAuthenticated()" class="nav-link fw-bold py-1 px-0" href="/login" th:href="@{/login}">Login</a>
+            <!--<a sec:authorize="!isAuthenticated()" class="nav-link fw-bold py-1 px-0" href="/register" th:href="@{/register}">Register</a>-->
+        </nav>
+    </div>
+</header>
+
+</body>
+</html>

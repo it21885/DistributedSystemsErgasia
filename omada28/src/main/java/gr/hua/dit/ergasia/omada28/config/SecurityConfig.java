@@ -27,8 +27,6 @@ public class SecurityConfig {
         return new JdbcUserDetailsManager(dataSource);
     }
 
-/*
-
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -46,45 +44,6 @@ public class SecurityConfig {
         return http.build();
 
     }
-
-
-
-
- */
-
-
-
-    @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-                .antMatchers("/buyer/**").hasAnyAuthority("ROLE_BUYER","ROLE_ADMIN","ROLE_CONTRACTOR")
-                .antMatchers("/seller/**").hasAnyAuthority("ROLE_SELLER","ROLE_ADMIN","ROLE_CONTRACTOR")
-                .antMatchers("/contractor/**").hasAnyAuthority("ROLE_CONTRACTOR","ROLE_ADMIN")
-                .antMatchers("/contract/**").hasAnyAuthority("ROLE_CONTRACTOR","ROLE_ADMIN")
-                .anyRequest().authenticated()
-                .and().formLogin()
-                .permitAll()
-                .and()
-                .logout().permitAll();
-
-
-        http.headers().frameOptions().sameOrigin();
-
-        return http.build();
-
-    }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     @Bean

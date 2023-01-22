@@ -74,7 +74,7 @@ public class ContractController {
         if (buyerId != 0) {
             Buyer abuyer = buyerDao.findById(buyerId);
             contract.setBuyer(abuyer);
-            //buyerDao.save(buyer);
+            buyerDao.save(buyer);
             contractDao.save(contract);
             return abuyer;
 
@@ -100,7 +100,7 @@ public class ContractController {
         if (contractorId != 0) {
             Contractor acontractor = contractorDao.findById(contractorId);
             contract.setContractor(acontractor);
-            //contractorDao.save(contractor);
+            contractorDao.save(contractor);
             contractDao.save(contract);
             return acontractor;
 
@@ -127,7 +127,7 @@ public class ContractController {
         if (sellerId != 0) {
             Seller aseller = sellerDao.findById(sellerId);
             contract.setSeller(aseller);
-            //sellerDao.save(seller);
+            sellerDao.save(seller);
             contractDao.save(contract);
             return aseller;
 

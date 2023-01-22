@@ -2,7 +2,6 @@ package gr.hua.dit.ergasia.omada28.Entity;
 
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
@@ -41,19 +40,19 @@ public class Contract implements Serializable {
     @OneToOne(fetch = FetchType.EAGER, cascade= {CascadeType.PERSIST, /*CascadeType.MERGE,*/
             CascadeType.DETACH, CascadeType.REFRESH})
     @JoinColumn(name="buyer_id")
-    //@JsonIgnore
+
     private Buyer buyer;
 
     @OneToOne(fetch = FetchType.EAGER, cascade= {CascadeType.PERSIST, /*CascadeType.MERGE,*/
             CascadeType.DETACH, CascadeType.REFRESH})
     @JoinColumn(name="seller_id")
-    //@JsonIgnore
+
     private Seller seller;
 
     @OneToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, /*CascadeType.MERGE,*/
             CascadeType.DETACH, CascadeType.REFRESH})
     @JoinColumn(name = "contractor_id")
-    //@JsonIgnore
+
     private Contractor contractor;
 
     public Contract(){
@@ -146,40 +145,6 @@ public class Contract implements Serializable {
     }
 
 
-
-    @JsonIgnore
-    private String buyerEmail;
-
-    @JsonIgnore
-    private String sellerEmail;
-
-    @JsonIgnore
-    private String contractorEmail;
-
-
-    public String getBuyerEmail() {
-        return buyerEmail;
-    }
-
-    public void setBuyerEmail(String buyerEmail) {
-        this.buyerEmail = buyerEmail;
-    }
-
-    public String getSellerEmail() {
-        return sellerEmail;
-    }
-
-    public void setSellerEmail(String sellerEmail) {
-        this.sellerEmail = sellerEmail;
-    }
-
-    public String getContractorEmail() {
-        return contractorEmail;
-    }
-
-    public void setContractorEmail(String contractorEmail) {
-        this.contractorEmail = contractorEmail;
-    }
 }
 
 

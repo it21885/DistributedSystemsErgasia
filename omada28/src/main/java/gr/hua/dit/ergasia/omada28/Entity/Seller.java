@@ -14,8 +14,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "contractor")
-public class Contractor implements Serializable {
+@Table(name = "seller")
+public class Seller implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,7 +36,7 @@ public class Contractor implements Serializable {
     //@Size(max = 30)
     private String email;
 
-    @OneToOne(mappedBy="contractor",fetch = FetchType.EAGER,
+    @OneToOne(mappedBy="seller",fetch = FetchType.EAGER,
             cascade= {CascadeType.PERSIST, /*CascadeType.MERGE,*/
                     CascadeType.DETACH, CascadeType.REFRESH})
     @JsonIgnore
@@ -49,15 +49,16 @@ public class Contractor implements Serializable {
 
 
 
-    public Contractor(){
+    public Seller(){
 
     }
 
-    public Contractor(String firstName, String lastName, String email) {
+    public Seller(String firstName, String lastName, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
     }
+
 
     public int getId() {
         return id;
@@ -100,21 +101,10 @@ public class Contractor implements Serializable {
     }
 
 
-    @JsonIgnore
-    private String propertyName;
-
-    public String getPropertyName() {
-        return propertyName;
-    }
-
-    public void setPropertyName(String propertyName) {
-        this.propertyName = propertyName;
-    }
-
 
     @Override
     public String toString() {
-        return "Contractor [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
+        return "Seller [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
                 + "]";
     }
 
